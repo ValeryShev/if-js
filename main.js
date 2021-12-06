@@ -8,11 +8,11 @@ console.log(user);
 
 let test = 1;
 test = ++test;
-test += 1;
-//3
+test += '1';
+//21
 console.log(test);
 test -= 1;
-//2
+//20
 console.log(test);
 test = Boolean(test);
 //true
