@@ -77,26 +77,24 @@ function max(a, b) {
 console.log(max(890, 70))
 
 
-
-let arr = [];
-for(let i = 0; i < 10; i++) {
-    arr.push(Math.floor(Math.random() * 100));
+    min = 0;
+    max = 100;
+    let arr = [];
+    for (let i = 0; i < 10; i++) {
+        arr.push(Math.floor(Math.random() * (max - min) + min));
+    }
+    console.log(arr);
+function strZero (arr2) {
+    let newArr = [];
+    arr2 = arr;
+    for (let i = 0; i < arr2.length; i++) {
+        if (arr2[i] % 10 === 0 || arr2[i] === 0) {
+            arr2[i] = arr2[i].toString().replace('0', 'zero');
+            console.log(arr2[i]);
+            newArr.push(arr2[i]);
+        } else {
+            newArr.push(arr2[i]);
+        }
+    } return newArr;
 }
-console.log(arr);
-str = arr.join(" ");
-let replace = /0/gi;
-let str2= str.replace(replace, 'zero');
-console.log(str2.split(" "));
-
-
-//это тоже работает, но дэбильно
-
-// let arr = [];
-// for(let i = 0; i < 10; i++) {
-//     arr.push(Math.floor(Math.random() * 100));
-// }
-// console.log(arr);
-// let arr2 = arr.toString().replace(/0/gi, (a) => {
-//     return a = 'zero'
-// })
-// console.log(arr2.split(''))
+console.log(strZero())
