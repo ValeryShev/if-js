@@ -74,24 +74,22 @@
 // }
 // console.log(max(890, 70))
 //
-//
-//     min = 0;
-//     max = 100;
-//     let arr = [];
-//     for (let i = 0; i < 10; i++) {
-//         arr.push(Math.floor(Math.random() * (max - min) + min));
-//     }
-//     console.log(arr);
-// function strZero (arr2) {
+// min = 0;
+// max = 100;
+// let arr = [];
+// for (let i = 0; i < 10; i++) {
+//     arr.push(Math.floor(Math.random() * (max - min) + min));
+// }
+// console.log(arr);
+// function strZero () {
 //     let newArr = [];
-//     arr2 = arr;
-//     for (let i = 0; i < arr2.length; i++) {
-//         if (arr2[i] % 10 === 0 || arr2[i] === 0) {
-//             arr2[i] = arr2[i].toString().replace('0', 'zero');
-//             console.log(arr2[i]);
-//             newArr.push(arr2[i]);
-//         } else {
-//             newArr.push(arr2[i]);
+//     for (let i = 0; i < arr.length; i++) {
+//         if (arr[i] % 10 === 0 || arr[i] === 0) {
+//             arr[i] = arr[i].toString().replace('0', 'zero');
+//             newArr.push(arr[i]);
+//         }
+//         else {
+//             newArr.push(arr[i]);
 //         }
 //     } return newArr;
 // }
