@@ -84,13 +84,28 @@ console.log(max(890, 70))
         arr.push(Math.floor(Math.random() * (max - min) + min));
     }
     console.log(arr);
-function strZero (arr2) {
+// function strZero (arr2) {
+//     let newArr = [];
+//     arr2 = arr;
+//     for (let i = 0; i < arr2.length; i++) {
+//         if (arr2[i] % 10 === 0 || arr2[i] === 0) {
+//             arr2[i] = arr2[i].toString().replace('0', 'zero');
+//             console.log(arr2[i]);
+//             newArr.push(arr2[i]);
+//         } else {
+//             newArr.push(arr2[i]);
+//         }
+//     } return newArr;
+// }
+// console.log(strZero(arr2))
+
+
+function strZero () {
     let newArr = [];
-    arr2 = arr;
+    let arr2 = arr;
     for (let i = 0; i < arr2.length; i++) {
         if (arr2[i] % 10 === 0 || arr2[i] === 0) {
             arr2[i] = arr2[i].toString().replace('0', 'zero');
-            console.log(arr2[i]);
             newArr.push(arr2[i]);
         } else {
             newArr.push(arr2[i]);
