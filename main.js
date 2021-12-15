@@ -97,32 +97,28 @@
 
 
 //lesson-4
-function sum(a, b) {
-    return a+b
+function sum(a) {
+    return function (b) {
+        return a + b;
+    }
 }
-console.log(sum(14, 7))
+console.log(sum(2)(8))
 
 const colors = ['magenta', 'cyan', 'firebrick', 'springgreen', 'skyblue'];
-let baseColor = 0;
-document.getElementById("text1").addEventListener("click",
-    function newCol(){
-    baseColor++;
-    if (baseColor > colors.length) baseColor = 0;
-    const firstText = document.getElementById("text1")
-    firstText.style.color = colors[baseColor]
-});
-document.getElementById("text2").addEventListener("click",
-    function newCol(){
-        baseColor++;
-        if (baseColor > colors.length) baseColor = 0;
-        const secondText = document.getElementById("text2")
-        secondText.style.color = colors[baseColor]
-    });
-document.getElementById("text3").addEventListener("click",
-    function newCol(){
-        baseColor++;
-        if (baseColor > colors.length) baseColor = 0;
-        const thirdText = document.getElementById("text3")
-        thirdText.style.color = colors[baseColor]
-    });
+let firstP = document.getElementById("text1");
+let secondP = document.getElementById("text2");
+let thirdP = document.getElementById("text3");
+function changeColor () {
+    let color = 0;
+    return function () {
+        this.style.color = colors[color];
+        color++;
+        if (color === colors.length) {
+            color = 0;
+        }
+    }
+}
+firstP.addEventListener('click', changeColor());
+secondP.addEventListener('click', changeColor());
+thirdP.addEventListener('click', changeColor());
 
