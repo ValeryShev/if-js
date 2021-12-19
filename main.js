@@ -97,28 +97,105 @@
 
 
 //lesson-4
-function sum(a) {
-    return function (b) {
-        return a + b;
+// function sum(a) {
+//     return function (b) {
+//         return a + b;
+//     }
+// }
+// console.log(sum(2)(8))
+//
+// const colors = ['magenta', 'cyan', 'firebrick', 'springgreen', 'skyblue'];
+// let firstP = document.getElementById("text1");
+// let secondP = document.getElementById("text2");
+// let thirdP = document.getElementById("text3");
+// function changeColor () {
+//     let color = 0;
+//     return function () {
+//         this.style.color = colors[color];
+//         color++;
+//         if (color === colors.length) {
+//             color = 0;
+//         }
+//     }
+// }
+// firstP.addEventListener('click', changeColor());
+// secondP.addEventListener('click', changeColor());
+// thirdP.addEventListener('click', changeColor());
+
+
+//lesson-5
+let date = '2020-11-26'
+function dateFormate() {
+    const dateReg = /^\d{4}-\d{2}-\d{2}$/;
+    if (dateReg.test(date)) {
+        date = date.split('-')
+            .reverse()
+            .join('.');
+        return date;
     }
 }
-console.log(sum(2)(8))
+console.log(dateFormate(date))
 
-const colors = ['magenta', 'cyan', 'firebrick', 'springgreen', 'skyblue'];
-let firstP = document.getElementById("text1");
-let secondP = document.getElementById("text2");
-let thirdP = document.getElementById("text3");
-function changeColor () {
-    let color = 0;
-    return function () {
-        this.style.color = colors[color];
-        color++;
-        if (color === colors.length) {
-            color = 0;
+
+const data = [
+    {
+        country: 'Russia',
+        city: 'Saint Petersburg',
+        hotel: 'Hotel Leopold',
+    },
+    {
+        country: 'Spain',
+        city: 'Santa Cruz de Tenerife',
+        hotel: 'Apartment Sunshine',
+    },
+    {
+        country: 'Slowakia',
+        city: 'Vysokie Tatry',
+        hotel: 'Villa Kunerad',
+    },
+    {
+        country: 'Germany',
+        city: 'Berlin',
+        hotel: 'Hostel Friendship',
+    },
+    {
+        country: 'Indonesia',
+        city: 'Bali',
+        hotel: 'Ubud Bali Resort&SPA',
+    },
+    {
+        country: 'Netherlands',
+        city: 'Rotterdam',
+        hotel: 'King Kong Hostel',
+    },
+    {
+        country: 'Marocco',
+        city: 'Ourika',
+        hotel: 'Rokoko Hotel',
+    },
+    {
+        country: 'Germany',
+        city: 'Berlin',
+        hotel: 'Hotel Rehberge Berlin Mitte',
+    },
+];
+const resultOfSearch = [];
+function search(str) {
+    for (let i = 0; i < data.length; i++) {
+        const dataValues = Object.values(data[i]);
+        if (dataValues.includes(str)) {
+            resultOfSearch.push(dataValues.join(' '));
         }
     }
+    if (resultOfSearch.length !== 0) {
+        return resultOfSearch;
+    } else {
+        throw 'Совпадений по запросу нет';
+    }
 }
-firstP.addEventListener('click', changeColor());
-secondP.addEventListener('click', changeColor());
-thirdP.addEventListener('click', changeColor());
 
+try {
+    console.log(search("Germany"));
+} catch (e) {
+    console.error(e);
+}
