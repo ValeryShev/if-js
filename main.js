@@ -368,15 +368,5 @@ const hotels = [
     },
 ];
 
-function dataSearch (str) {
-    str = str.toLowerCase();
-    return hotels.reduce((acc, item) => {
-        if (Object.values(item).toString().toLowerCase().includes(str)) {
-            acc.push(`${item.country}, ${item.city}, ${item.name}`)
-        }
-        return acc;
-    }, [])
-}
-console.log(dataSearch('ger'));
-console.log(dataSearch('lonDon'));
+
 
