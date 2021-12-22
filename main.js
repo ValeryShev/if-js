@@ -181,6 +181,7 @@ const data = [
 ];
 const resultOfSearch = [];
 function search(str) {
+str = str.toLowerCase();
     for (let i = 0; i < data.length; i++) {
         const dataValues = Object.values(data[i]);
         if (dataValues.includes(str)) {
