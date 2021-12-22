@@ -368,6 +368,26 @@ const hotels = [
         country: 'Germany',
     },
 ];
+function dataSearch (str) {
+    str = str.toLowerCase();
+    return hotels.reduce((acc, item) => {
+        if (Object.values(item).toString().toLowerCase().includes(str)) {
+            acc.push(`${item.country}, ${item.city}, ${item.name}`)
+        }
+        return acc;
+    }, [])
+}
+console.log(dataSearch('ger'));
+console.log(dataSearch('lonDon'));
 
 
-
+const sortCountry = {};
+hotels.forEach(item => {
+    if (sortCountry[item.country]
+        && !sortCountry[item.country].includes(item.city)) {
+        sortCountry[item.country].push(item.city);
+    } else {
+        sortCountry[item.country] = [item.city];
+    }
+})
+console.log(sortCountry);
