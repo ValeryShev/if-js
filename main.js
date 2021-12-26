@@ -58,13 +58,14 @@
 // }
 // console.log (palindrome('шалаш'))
 //
-// function min(a, b) {
-//     if (a < b) {
-//         return a;
-//     }
-//     return b;
-// }
-// console.log(min(16, 70))
+function min(a, b) {
+    if (a < b) {
+        return a;
+    }
+    return b;
+}
+console.log(min(16, 70))
+module.exports = min
 //
 // function max(a, b) {
 //     if (a > b) {
