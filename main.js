@@ -441,6 +441,7 @@ function isEqual(object1, object2) {
             }
         }
 
+
         return true;
 }
 console.log(isEqual(obj1, obj2))
