@@ -58,14 +58,14 @@
 // }
 // console.log (palindrome('шалаш'))
 //
-function min(a, b) {
-    if (a < b) {
-        return a;
-    }
-    return b;
-}
-console.log(min(16, 70))
-module.exports = min
+// function min(a, b) {
+//     if (a < b) {
+//         return a;
+//     }
+//     return b;
+// }
+// console.log(min(16, 70))
+// module.exports = min
 //
 // function max(a, b) {
 //     if (a > b) {
@@ -395,53 +395,121 @@ module.exports = min
 
 
 //lesson-7
-const obj1 = {
-    a: 'a',
-    b: {
-        a: 'a',
-        b: 'b',
-        c: {
-            a: 1,
-        },
-    },
-};
-const obj2 = {
-    b: {
-        c: {
-            a: 1,
-        },
-        b: 'b',
-        a: 'a',
-    },
-    a: 'a',
-};
-const obj3 = {
-    a: {
-        c: {
-            a: 'a',
-        },
-        b: 'b',
-        a: 'a',
-    },
-    b: 'b',
-};
+// const obj1 = {
+//     a: 'a',
+//     b: {
+//         a: 'a',
+//         b: 'b',
+//         c: {
+//             a: 1,
+//         },
+//     },
+// };
+// const obj2 = {
+//     b: {
+//         c: {
+//             a: 1,
+//         },
+//         b: 'b',
+//         a: 'a',
+//     },
+//     a: 'a',
+// };
+// const obj3 = {
+//     a: {
+//         c: {
+//             a: 'a',
+//         },
+//         b: 'b',
+//         a: 'a',
+//     },
+//     b: 'b',
+// };
+//
+// function isEqual(object1, object2) {
+//         const props1 = Object.getOwnPropertyNames(object1);
+//         const props2 = Object.getOwnPropertyNames(object2);
+//         if (props1.length !== props2.length) {
+//             return false;
+//         }
+//         for (let i = 0; i < props1.length; i += 1) {
+//             const prop = props1[i];
+//             const bothAreObjects = typeof(object1[prop]) === 'object' && typeof(object2[prop]) === 'object';
+//             if ((!bothAreObjects && (object1[prop] !== object2[prop]))
+//                 || (bothAreObjects && !isEqual(object1[prop], object2[prop]))) {
+//                 return false;
+//             }
+//         }
+//
+//         return true;
+// }
+// console.log(isEqual(obj1, obj2))
+// console.log(isEqual(obj1, obj3))
 
-function isEqual(object1, object2) {
-        const props1 = Object.getOwnPropertyNames(object1);
-        const props2 = Object.getOwnPropertyNames(object2);
-        if (props1.length !== props2.length) {
-            return false;
-        }
-        for (let i = 0; i < props1.length; i += 1) {
-            const prop = props1[i];
-            const bothAreObjects = typeof(object1[prop]) === 'object' && typeof(object2[prop]) === 'object';
-            if ((!bothAreObjects && (object1[prop] !== object2[prop]))
-                || (bothAreObjects && !isEqual(object1[prop], object2[prop]))) {
-                return false;
-            }
-        }
 
-        return true;
+//lesson-8
+class User {
+    constructor(firstName, lastName) {
+    this.firstName = firstName;
+        this.lastName = lastName;
+    }
+    get fullName () {
+        return `${this.firstName} ${this.lastName}`;
+    }
 }
-console.log(isEqual(obj1, obj2))
-console.log(isEqual(obj1, obj3))
+
+class Student extends User {
+    constructor({firstName, lastName, admissionYear, courseName}) {
+        super(firstName, lastName);
+        this.admissionYear = admissionYear;
+        this.courseName = courseName;
+    }
+    get course () {
+        const currentYear = new Date().getFullYear();
+        return `${currentYear - this.admissionYear} курс`;
+    }
+}
+
+class Students {
+    constructor(students) {
+        this.students = students
+    }
+    getInfo(students) {
+        const result = [];
+        instancesStudents.sort((a, b) => a.course > b.course ? 1 : -1);
+        instancesStudents.map(i => {
+            result.push(`${i.fullName} - ${i.courseName}, ${i.course}`);
+        })
+        return result;
+    }
+}
+
+const studentsData = [
+    {
+        firstName: 'Василий',
+        lastName: 'Петров',
+        admissionYear: 2019,
+        courseName: 'Java',
+    },
+    {
+        firstName: 'Иван',
+        lastName: 'Иванов',
+        admissionYear: 2018,
+        courseName: 'JavaScript',
+    },
+    {
+        firstName: 'Александр',
+        lastName: 'Федоров',
+        admissionYear: 2017,
+        courseName: 'Python',
+    },
+    {
+        firstName: 'Николай',
+        lastName: 'Петров',
+        admissionYear: 2019,
+        courseName: 'Android',
+    }
+];
+const instancesStudents = studentsData.map(student => new Student(student));
+const students = new Students(instancesStudents);
+console.log(students.getInfo());
