@@ -81,7 +81,7 @@
 //     arr.push(Math.floor(Math.random() * (max - min) + min));
 // }
 // console.log(arr);
-// function strZero () {
+// function strZero (arr) {
 //     let newArr = [];
 //     for (let i = 0; i < arr.length; i++) {
 //         if (arr[i] % 10 === 0 || arr[i] === 0) {
@@ -93,7 +93,7 @@
 //         }
 //     } return newArr;
 // }
-// console.log(strZero())
+// console.log(strZero(arr))
 
 
 //lesson-4
@@ -195,8 +195,3 @@ str = str.toLowerCase();
     }
 }
 
-try {
-    console.log(search("Germany"));
-} catch (e) {
-    console.error(e);
-}
