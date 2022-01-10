@@ -58,14 +58,14 @@
 // }
 // console.log (palindrome('шалаш'))
 //
-function min(a, b) {
-    if (a < b) {
-        return a;
-    }
-    return b;
-}
-console.log(min(16, 70))
-module.exports = min
+// function min(a, b) {
+//     if (a < b) {
+//         return a;
+//     }
+//     return b;
+// }
+// console.log(min(16, 70))
+// module.exports = min
 //
 // function max(a, b) {
 //     if (a > b) {
@@ -440,7 +440,6 @@ function isEqual(object1, object2) {
                 return false;
             }
         }
-
 
         return true;
 }
