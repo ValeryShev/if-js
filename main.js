@@ -124,74 +124,270 @@
 
 
 //lesson-5
-let date = '2020-11-26'
-function dateFormate() {
-    const dateReg = /^\d{4}-\d{2}-\d{2}$/;
-    if (dateReg.test(date)) {
-        date = date.split('-')
-            .reverse()
-            .join('.');
-        return date;
-    }
+// let date = '2020-11-26'
+// function dateFormate() {
+//     const dateReg = /^\d{4}-\d{2}-\d{2}$/;
+//     if (dateReg.test(date)) {
+//         date = date.split('-')
+//             .reverse()
+//             .join('.');
+//         return date;
+//     }
+// }
+// console.log(dateFormate(date))
+//
+//
+// const data = [
+//     {
+//         country: 'Russia',
+//         city: 'Saint Petersburg',
+//         hotel: 'Hotel Leopold',
+//     },
+//     {
+//         country: 'Spain',
+//         city: 'Santa Cruz de Tenerife',
+//         hotel: 'Apartment Sunshine',
+//     },
+//     {
+//         country: 'Slowakia',
+//         city: 'Vysokie Tatry',
+//         hotel: 'Villa Kunerad',
+//     },
+//     {
+//         country: 'Germany',
+//         city: 'Berlin',
+//         hotel: 'Hostel Friendship',
+//     },
+//     {
+//         country: 'Indonesia',
+//         city: 'Bali',
+//         hotel: 'Ubud Bali Resort&SPA',
+//     },
+//     {
+//         country: 'Netherlands',
+//         city: 'Rotterdam',
+//         hotel: 'King Kong Hostel',
+//     },
+//     {
+//         country: 'Marocco',
+//         city: 'Ourika',
+//         hotel: 'Rokoko Hotel',
+//     },
+//     {
+//         country: 'Germany',
+//         city: 'Berlin',
+//         hotel: 'Hotel Rehberge Berlin Mitte',
+//     },
+// ];
+// const resultOfSearch = [];
+// function search(str) {
+//str = str.toLowerCase();
+//     for (let i = 0; i < data.length; i++) {
+//         const dataValues = Object.values(data[i]);
+//         if (dataValues.includes(str)) {
+//             resultOfSearch.push(dataValues.join(' '));
+//         }
+//     }
+//     if (resultOfSearch.length !== 0) {
+//         return resultOfSearch;
+//     } else {
+//         throw 'Совпадений по запросу нет';
+//     }
+// }
+//
+// try {
+//     console.log(search("Germany"));
+// } catch (e) {
+//     console.error(e);
+// }
+
+
+
+//lesson-6
+function palindrome2(str) {
+    str = str.toLowerCase();
+    return str === str.split('').reverse().join('');
 }
-console.log(dateFormate(date))
+console.log(palindrome2('шалаш'));
+console.log(palindrome2('мама'));
 
-
-const data = [
+const hotels = [
     {
-        country: 'Russia',
+        name: 'Hotel Leopold',
         city: 'Saint Petersburg',
-        hotel: 'Hotel Leopold',
+        country: 'Russia',
     },
     {
-        country: 'Spain',
+        name: 'Apartment Sunshine',
         city: 'Santa Cruz de Tenerife',
-        hotel: 'Apartment Sunshine',
+        country: 'Spain',
     },
     {
-        country: 'Slowakia',
+        name: 'Villa Kunerad',
         city: 'Vysokie Tatry',
-        hotel: 'Villa Kunerad',
+        country: 'Slowakia',
     },
     {
-        country: 'Germany',
+        name: 'Hostel Friendship',
         city: 'Berlin',
-        hotel: 'Hostel Friendship',
+        country: 'Germany',
     },
     {
+        name: 'Radisson Blu Hotel',
+        city: 'Kyiv',
+        country: 'Ukraine',
+    },
+    {
+        name: 'Paradise Hotel',
+        city: 'Guadalupe',
+        country: 'Mexico',
+    },
+    {
+        name: 'Hotel Grindewald',
+        city: 'Interlaken',
+        country: 'Switzerland',
+    },
+    {
+        name: 'The Andaman Resort',
+        city: 'Port Dickson',
+        country: 'Malaysia',
+    },
+    {
+        name: 'Virgin Hotel',
+        city: 'Chicago',
+        country: 'USA',
+    },
+    {
+        name: 'Grand Beach Resort',
+        city: 'Dubai',
+        country: 'United Arab Emirates',
+    },
+    {
+        name: 'Shilla Stay',
+        city: 'Seoul',
+        country: 'South Korea',
+    },
+    {
+        name: 'San Firenze Suites',
+        city: 'Florence',
+        country: 'Italy',
+    },
+    {
+        name: 'The Andaman Resort',
+        city: 'Port Dickson',
+        country: 'Malaysia',
+    },
+    {
+        name: 'Black Penny Villas',
+        city: 'BTDC, Nuca Dua',
         country: 'Indonesia',
-        city: 'Bali',
-        hotel: 'Ubud Bali Resort&SPA',
     },
     {
+        name: 'Koko Hotel',
+        city: 'Tokyo',
+        country: 'Japan',
+    },
+    {
+        name: 'Ramada Plaza',
+        city: 'Istanbul',
+        country: 'Turkey',
+    },
+    {
+        name: 'Waikiki Resort Hotel',
+        city: 'Hawaii',
+        country: 'USA',
+    },
+    {
+        name: 'Puro Hotel',
+        city: 'Krakow',
+        country: 'Poland',
+    },
+    {
+        name: 'Asma Suites',
+        city: 'Santorini',
+        country: 'Greece',
+    },
+    {
+        name: 'Cityden Apartments',
+        city: 'Amsterdam',
         country: 'Netherlands',
-        city: 'Rotterdam',
-        hotel: 'King Kong Hostel',
     },
     {
-        country: 'Marocco',
-        city: 'Ourika',
-        hotel: 'Rokoko Hotel',
+        name: 'Mandarin Oriental',
+        city: 'Miami',
+        country: 'USA',
     },
     {
+        name: 'Concept Terrace Hotel',
+        city: 'Rome',
+        country: 'Italy',
+    },
+    {
+        name: 'Ponta Mar Hotel',
+        city: 'Fortaleza',
+        country: 'Brazil',
+    },
+    {
+        name: 'Four Seasons Hotel',
+        city: 'Sydney',
+        country: 'Australia',
+    },
+    {
+        name: 'Le Meridien',
+        city: 'Nice',
+        country: 'France',
+    },
+    {
+        name: 'Apart Neptun',
+        city: 'Gdansk',
+        country: 'Poland',
+    },
+    {
+        name: 'Lux Isla',
+        city: 'Ibiza',
+        country: 'Spain',
+    },
+    {
+        name: 'Nox Hostel',
+        city: 'London',
+        country: 'UK',
+    },
+    {
+        name: 'Leonardo Vienna',
+        city: 'Vienna',
+        country: 'Austria',
+    },
+    {
+        name: 'Adagio Aparthotel',
+        city: 'Edinburgh',
+        country: 'UK',
+    },
+    {
+        name: 'Steigenberger Hotel',
+        city: 'Hamburg',
         country: 'Germany',
-        city: 'Berlin',
-        hotel: 'Hotel Rehberge Berlin Mitte',
     },
 ];
-const resultOfSearch = [];
-function search(str) {
-str = str.toLowerCase();
-    for (let i = 0; i < data.length; i++) {
-        const dataValues = Object.values(data[i]);
-        if (dataValues.includes(str)) {
-            resultOfSearch.push(dataValues.join(' '));
+function dataSearch (str) {
+    str = str.toLowerCase();
+    return hotels.reduce((acc, item) => {
+        if (Object.values(item).toString().toLowerCase().includes(str)) {
+            acc.push(`${item.country}, ${item.city}, ${item.name}`)
         }
-    }
-    if (resultOfSearch.length !== 0) {
-        return resultOfSearch;
-    } else {
-        throw 'Совпадений по запросу нет';
-    }
+        return acc;
+    }, [])
 }
+console.log(dataSearch('ger'));
+console.log(dataSearch('lonDon'));
 
+
+const sortCountry = {};
+hotels.forEach(item => {
+    if (sortCountry[item.country]
+        && !sortCountry[item.country].includes(item.city)) {
+        sortCountry[item.country].push(item.city);
+    } else {
+        sortCountry[item.country] = [item.city];
+    }
+})
+console.log(sortCountry);
