@@ -4,7 +4,7 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "prepare": "husky install"
   },
   "repository": {
@@ -18,9 +18,8 @@
   },
   "homepage": "https://github.com/ValeryShev/if-js#readme",
   "devDependencies": {
-    "eslint": "^8.3.0"
-  },
-  "dependencies": {
-    "husky": "^7.0.4"
+    "eslint": "^8.5.0",
+    "husky": "^7.0.4",
+    "jest": "^27.4.5"
   }
 }
