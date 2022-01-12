@@ -513,3 +513,4 @@ const studentsData = [
 const instancesStudents = studentsData.map(student => new Student(student));
 const students = new Students(instancesStudents);
 console.log(students.getInfo());
+
