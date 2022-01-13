@@ -466,7 +466,9 @@ class Student extends User {
     }
     get course () {
         const currentYear = new Date().getFullYear();
-        return `${currentYear - this.admissionYear} курс`;
+        if (this.admissionYear != 2022) {
+            return `${currentYear - this.admissionYear} курс`
+        } else return "1 курс"
     }
 }
 
