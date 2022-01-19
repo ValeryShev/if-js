@@ -447,72 +447,102 @@
 // console.log(isEqual(obj1, obj3))
 
 
-//lesson-8
-class User {
-    constructor(firstName, lastName) {
-    this.firstName = firstName;
-        this.lastName = lastName;
-    }
-    get fullName () {
-        return `${this.firstName} ${this.lastName}`;
-    }
-}
+// //lesson-8
+// class User {
+//     constructor(firstName, lastName) {
+//     this.firstName = firstName;
+//         this.lastName = lastName;
+//     }
+//     get fullName () {
+//         return `${this.firstName} ${this.lastName}`;
+//     }
+// }
+//
+// class Student extends User {
+//     constructor({firstName, lastName, admissionYear, courseName}) {
+//         super(firstName, lastName);
+//         this.admissionYear = admissionYear;
+//         this.courseName = courseName;
+//     }
+//     get course () {
+//         const currentYear = new Date().getFullYear();
+//         return currentYear - this.admissionYear > 0 ? currentYear - this.admissionYear : 1;
+//     }
+// }
+//
+// class Students {
+//     constructor(students) {
+//         this.students = students
+//     }
+//     getInfo(students) {
+//         const result = [];
+//         instancesStudents.sort((a, b) => a.course > b.course ? 1 : -1);
+//         instancesStudents.map(i => {
+//             result.push(`${i.fullName} - ${i.courseName}, ${i.course}`);
+//         })
+//         return result;
+//     }
+// }
+//
+// const studentsData = [
+//     {
+//         firstName: 'Василий',
+//         lastName: 'Петров',
+//         admissionYear: 2019,
+//         courseName: 'Java',
+//     },
+//     {
+//         firstName: 'Иван',
+//         lastName: 'Иванов',
+//         admissionYear: 2018,
+//         courseName: 'JavaScript',
+//     },
+//     {
+//         firstName: 'Александр',
+//         lastName: 'Федоров',
+//         admissionYear: 2017,
+//         courseName: 'Python',
+//     },
+//     {
+//         firstName: 'Николай',
+//         lastName: 'Петров',
+//         admissionYear: 2019,
+//         courseName: 'Android',
+//     }
+// ];
+// const instancesStudents = studentsData.map(student => new Student(student));
+// const students = new Students(instancesStudents);
+// console.log(students.getInfo());
 
-class Student extends User {
-    constructor({firstName, lastName, admissionYear, courseName}) {
-        super(firstName, lastName);
-        this.admissionYear = admissionYear;
-        this.courseName = courseName;
-    }
-    get course () {
-        const currentYear = new Date().getFullYear();
-        if (this.admissionYear != 2022) {
-            return `${currentYear - this.admissionYear} курс`
-        } else return "1 курс"
-    }
-}
 
-class Students {
-    constructor(students) {
-        this.students = students
-    }
-    getInfo(students) {
-        const result = [];
-        instancesStudents.sort((a, b) => a.course > b.course ? 1 : -1);
-        instancesStudents.map(i => {
-            result.push(`${i.fullName} - ${i.courseName}, ${i.course}`);
-        })
-        return result;
-    }
-}
 
-const studentsData = [
-    {
-        firstName: 'Василий',
-        lastName: 'Петров',
-        admissionYear: 2019,
-        courseName: 'Java',
+//lesson-9
+const colors = {
+    data: ["magenta", "cyan", "firebrick", "springgreen", "skyblue"],
+    [Symbol.iterator]() {
+        const arr = this.data;
+        return {
+            next(index) {
+                return {
+                    value: arr[index],
+                    done: index === arr.length,
+                };
+            },
+        };
     },
-    {
-        firstName: 'Иван',
-        lastName: 'Иванов',
-        admissionYear: 2018,
-        courseName: 'JavaScript',
-    },
-    {
-        firstName: 'Александр',
-        lastName: 'Федоров',
-        admissionYear: 2017,
-        courseName: 'Python',
-    },
-    {
-        firstName: 'Николай',
-        lastName: 'Петров',
-        admissionYear: 2019,
-        courseName: 'Android',
-    }
-];
-const instancesStudents = studentsData.map(student => new Student(student));
-const students = new Students(instancesStudents);
-console.log(students.getInfo());
+};
+function changeStyle() {
+    let i = 0;
+    return function () {
+        let iterator = colors[Symbol.iterator]();
+        this.style.color = iterator.next(i).value;
+        i++;
+        if (iterator.next(i).done) {
+            i = 0;
+        }
+    };
+}
+document.getElementById("text1").addEventListener("click", changeStyle());
+document.getElementById("text2").addEventListener("click", changeStyle());
+document.getElementById("text3").addEventListener("click", changeStyle());
 
