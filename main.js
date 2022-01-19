@@ -464,11 +464,10 @@ class Student extends User {
         this.admissionYear = admissionYear;
         this.courseName = courseName;
     }
-    get course () {
+
+    get course() {
         const currentYear = new Date().getFullYear();
-        if (this.admissionYear != 2022) {
-            return `${currentYear - this.admissionYear} курс`
-        } else return "1 курс"
+        return currentYear - this.admissionYear > 0 ? currentYear - this.admissionYear : 1;
     }
 }
 
@@ -516,3 +515,11 @@ const instancesStudents = studentsData.map(student => new Student(student));
 const students = new Students(instancesStudents);
 console.log(students.getInfo());
 
+
+//lesson-9
+const colors2 = {
+    data: ['magenta', 'cyan', 'firebrick', 'springgreen', 'skyblue'],
+    [Symbol.iterator]() {
+        // ваш код
+    }
+}
